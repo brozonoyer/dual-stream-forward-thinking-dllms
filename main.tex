@@ -1,0 +1,95 @@
+\pdfoutput=1
+% Build (from repo root):
+%   pdflatex main && bibtex main && pdflatex main && pdflatex main
+%
+% Submission modes (pick one):
+%   \usepackage{icml2026}               % blind review
+%   \usepackage[preprint]{icml2026}     % author-visible preprint
+%   \usepackage[accepted]{icml2026}     % camera-ready
+
+\documentclass{article}
+
+% Resolve the ICML style from repo root.
+\makeatletter
+\def\input@path{{./styles/icml2026/}{styles/icml2026/}}
+\makeatother
+
+\PassOptionsToPackage{noabbrev,nameinlink,capitalize}{cleveref}
+\PassOptionsToPackage{hyphens}{url}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage{icml2026}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage[capitalize,noabbrev,nameinlink]{cleveref}
+
+\usepackage{packages/math}
+\usepackage{packages/colors}
+\usepackage{packages/symbols}
+\usepackage{packages/refs}
+
+\icmltitlerunning{Dual-Stream Forward-Thinking DLMs}
+
+\begin{document}
+
+\twocolumn[
+  \icmltitle{Dual-Stream Forward-Thinking\\ Diffusion Language Models}
+
+  \icmlsetsymbol{equal}{*}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Author Name}{inst}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{inst}{Affiliation}
+
+  \icmlcorrespondingauthor{Author Name}{email@domain.edu}
+
+  \icmlkeywords{}
+
+  \vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\input{drafts/icml/sections/00_abstract}
+
+\input{drafts/icml/sections/01_introduction}
+\input{drafts/icml/sections/02_background}
+\input{drafts/icml/sections/03_method}
+\input{drafts/icml/sections/04_experiments}
+\input{drafts/icml/sections/05_related_work}
+\input{drafts/icml/sections/06_discussion}
+\input{drafts/icml/sections/07_conclusion}
+
+\ifdefined\isaccepted
+  \input{drafts/icml/sections/y0_acknowledgments}
+\else
+  \ifdefined\ispreprint
+    \input{drafts/icml/sections/y0_acknowledgments}
+  \fi
+\fi
+
+\section*{Impact Statement}
+This paper presents work whose goal is to advance the field of Machine
+Learning. There are many potential societal consequences of our work, none
+which we feel must be specifically highlighted here.
+
+\bibliographystyle{styles/icml2026/icml2026}
+\bibliography{references}
+
+\newpage
+\appendix
+\onecolumn
+\input{drafts/icml/sections/z0_appendix}
+
+\end{document}
